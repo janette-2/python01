@@ -17,7 +17,7 @@ class Plant:
         self.age += 1
 
 
-def ft_plant_factory():
+def ft_plant_factory() -> None:
     factory = [
         Plant("Rose", 25, 30),
         Plant("Oak", 200, 365),
