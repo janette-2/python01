@@ -1,7 +1,7 @@
 class Plant:
     def __init__(self, name: str, height: int, age: int):
-        self.name = name  # Atributo de instancia
-        self.height = height  # Atributo de instancia
+        self.name = name
+        self.height = height
         self.age = age
 
     def get_info(self):
