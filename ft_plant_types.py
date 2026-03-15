@@ -23,7 +23,7 @@ class Flower(Plant):
         self.color = color
 
     def bloom(self) -> None:
-        print("Rose is blooming beautifully!")
+        print(f"{self.name} is blooming beautifully!")
 
     def get_info(self):
         print(f"{self.name} (Flower): {self.height}cm, {self.age} days,"
