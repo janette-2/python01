@@ -44,7 +44,7 @@ class PrizeFlower(FloweringPlant):
 class Garden:
     def __init__(self, owner: str):
         self.owner = owner
-        self.plants = []  #incializacion de una lista vacía
+        self.plants = []  # incializacion de una lista vacía
         self.total_plants = 0
         self.total_growth = 0
         self.total_regular = 0
