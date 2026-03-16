@@ -83,8 +83,34 @@ class Garden:
               f" {self.total_prize} prize flowers")
 
 
-# class GardenManager:
-#     def __init__(self):
+class GardenManager:
+    total_gardens = 0  # Inicializar variable de clase
+
+    def __init__(self):
+        self.gardens = []
+
+    def add_garden(self, garden: Garden) -> None:
+        self.gardens += [garden]  # Conversion de objeto tipo Garden a tipo Lista, para poder adaptarse a la variable
+        GardenManager.total_gardens += 1
+
+    @classmethod
+    def create_garden_network(cls, list_g: list) -> "GardenManager":  # Retorno de una instancia de clase tipo "xx"
+        network = GardenManager()
+        for element in list_g:
+            network.add_garden(element)
+        return network
+
+    class GardenStats:
+        @staticmethod  # Para métodos que no dependen de self, sólo procesan valores aislados
+        def validate_height(height: int) -> bool:
+            return (height > 0)
+
+        @classmethod  # Para metodos que recurran al 'self'
+        def calculate_score(cls, plants: list) -> int:
+            total = 0
+            for element in plants:
+                total = total + element.height
+            return (total)
 
 
 def ft_garden_analytics():
@@ -99,6 +125,17 @@ def ft_garden_analytics():
     print("")
     garden0.get_report()
     print("")
+    garden1 = Garden("Bob")
+    bush = Plant("Bush", 92, 393)
+    garden1.plants += [bush]
+    score1 = GardenManager.GardenStats.calculate_score(garden1.plants)
+    score = GardenManager.GardenStats.calculate_score(garden0.plants)  # Llamar a classmethod()
+    bool = GardenManager.GardenStats.validate_height(garden0.plants[1].height)
+    print(f"Height validation test: {bool}")
+    print(f"Garden scores - {garden0.owner}: {score},"
+          f" {garden1.owner}: {score1}")
+    network = GardenManager().create_garden_network([garden0, garden1])
+    print(f"Total gardens managed: {network.total_gardens}")
 
 
 if __name__ == "__main__":
