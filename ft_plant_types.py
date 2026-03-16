@@ -37,9 +37,8 @@ class Tree(Plant):
         self.trunk_diameter = trunk_diameter
 
     def produce_shade(self) -> int:
-        diameter_m = self.trunk_diameter / 100
-        area = 3.14 * (diameter_m ** 2) * 100
-        return (int(area))
+        area = (314 * (self.trunk_diameter ** 2)) // 10000
+        return area
 
     def get_info(self):
         print(f"{self.name} (Tree): {self.height}cm, {self.age} days, "

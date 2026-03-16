@@ -84,28 +84,49 @@ class Garden:
 
 
 class GardenManager:
+    """
+    Variable created to affect the whole class, not for an specific garden,
+    but to all of them
+    """
     total_gardens = 0  # Inicializar variable de clase
 
     def __init__(self):
         self.gardens = []
 
+    """
+    To add items to a list, you need to cast them into a list type by
+    using: list += [new_item]
+
+    """
     def add_garden(self, garden: Garden) -> None:
-        self.gardens += [garden]  # Conversion de objeto tipo Garden a tipo Lista, para poder adaptarse a la variable
+        self.gardens += [garden]
         GardenManager.total_gardens += 1
 
+    """
+    Class created to affect not only to an specific instance
+    but to different ones
+
+    """
     @classmethod
-    def create_garden_network(cls, list_g: list) -> "GardenManager":  # Retorno de una instancia de clase tipo "xx"
+    def create_garden_network(cls, list_g: list) -> "GardenManager":
         network = GardenManager()
         for element in list_g:
             network.add_garden(element)
         return network
 
     class GardenStats:
-        @staticmethod  # Para métodos que no dependen de self, sólo procesan valores aislados
+        """
+        Methods that don't depend of a specific instance, it only affects
+        an isolated value.
+        Later, to call these functions of a nested class (a class inside of
+        another).You need to call all the precedent parents of the final
+        nested class before accesing an specific method.
+        """
+        @staticmethod
         def validate_height(height: int) -> bool:
             return (height > 0)
 
-        @classmethod  # Para metodos que recurran al 'self'
+        @classmethod
         def calculate_score(cls, plants: list) -> int:
             total = 0
             for element in plants:
@@ -129,7 +150,7 @@ def ft_garden_analytics():
     bush = Plant("Bush", 92, 393)
     garden1.plants += [bush]
     score1 = GardenManager.GardenStats.calculate_score(garden1.plants)
-    score = GardenManager.GardenStats.calculate_score(garden0.plants)  # Llamar a classmethod()
+    score = GardenManager.GardenStats.calculate_score(garden0.plants)
     bool = GardenManager.GardenStats.validate_height(garden0.plants[1].height)
     print(f"Height validation test: {bool}")
     print(f"Garden scores - {garden0.owner}: {score},"
