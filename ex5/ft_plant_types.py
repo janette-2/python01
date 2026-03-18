@@ -1,3 +1,19 @@
+"""
+ft_plant_types.py
+
+This file expands the basic Plant class by introducing inheritance and
+specialized plant types. Flower, Tree, and Vegetable all extend the
+Plant class, adding their own attributes and behaviors while reusing
+the common features defined in the parent class.
+
+Each subclass overrides get_info() to display its specific details and
+demonstrates how inherited methods can be customized. The script creates
+several examples of each plant type and prints their information,
+showing how different objects can share a common structure while
+behaving in unique ways.
+"""
+
+
 class Plant:
     def __init__(self, name: str, height: int, age: int):
         self.name = name
@@ -22,7 +38,7 @@ class Flower(Plant):
         super().__init__(name, height, age)
         self.color = color
 
-    def bloom(self) -> None:
+    def bloom(self):
         print(f"{self.name} is blooming beautifully!")
 
     def get_info(self):
@@ -65,24 +81,24 @@ class Vegetable(Plant):
 
 def ft_plant_types():
     rose = Flower("Rose", 25, 30, "red")
-    carnation = Flower("Carnation", 28, 15, "white and purple")
     oak = Tree("Oak", 500, 1825, 50)
-    pine = Tree("Pine", 300, 2500, 80)
     tomato = Vegetable("Tomato", 80, 90, "summer", "vitamin C")
-    carrot = Vegetable("Carrot", 50, 60, "spring", "vitamin A")
     print("=== Garden Plant Types ===")
     print("")
     garden = [rose, oak, tomato]
     for element in garden:
         element.get_info()
         print("")
-    print("")
-    print("=== Garden Plant Types ===")
-    print("")
-    garden1 = [carnation, pine, carrot]
-    for element in garden1:
-        element.get_info()
-        print("")
+    # print("")
+    # print("=== Garden Plant Types ===")
+    # print("")
+    # carnation = Flower("Carnation", 28, 15, "white and purple")
+    # pine = Tree("Pine", 300, 2500, 80)
+    # carrot = Vegetable("Carrot", 50, 60, "spring", "vitamin A")
+    # garden1 = [carnation, pine, carrot]
+    # for element in garden1:
+    #     element.get_info()
+    #     print("")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,31 @@
+"""
+ft_garden_analytics.py
+
+This file introduces a more advanced object‑oriented design for managing
+different types of plants and organizing them into gardens. The Plant
+class is extended through multiple levels of inheritance, creating
+specialized versions such as FloweringPlant and PrizeFlower. Each
+subclass adds its own attributes and custom behavior while reusing the
+base functionality.
+
+The Garden class acts as a container that stores plants, tracks totals,
+and generates reports. It demonstrates how objects can work together
+and how aggregated data can be computed from a collection of instances.
+
+The GardenManager class provides tools for managing multiple gardens.
+It includes class‑level data shared across all instances, a classmethod
+for creating a network of gardens, and a nested GardenStats class with
+utility methods implemented as static and class methods. These features
+illustrate how different method types can be used depending on whether
+they operate on instance data, class data, or independent values.
+
+The script creates several plants and gardens, applies growth
+operations, calculates statistics, and prints a summary of the results.
+This exercise highlights inheritance, composition, class‑level
+behavior, and structured data management.
+"""
+
+
 class Plant:
     def __init__(self, name: str, height: int, age: int):
         self.name = name
@@ -44,7 +72,7 @@ class PrizeFlower(FloweringPlant):
 class Garden:
     def __init__(self, owner: str):
         self.owner = owner
-        self.plants = []  # incializacion de una lista vacía
+        self.plants = []
         self.total_plants = 0
         self.total_growth = 0
         self.total_regular = 0
@@ -88,7 +116,7 @@ class GardenManager:
     Variable created to affect the whole class, not for an specific garden,
     but to all of them
     """
-    total_gardens = 0  # Inicializar variable de clase
+    total_gardens = 0
 
     def __init__(self):
         self.gardens = []
@@ -119,7 +147,7 @@ class GardenManager:
         Methods that don't depend of a specific instance, it only affects
         an isolated value.
         Later, to call these functions of a nested class (a class inside of
-        another).You need to call all the precedent parents of the final
+        another) you need to call all the precedent parents of the final
         nested class before accesing an specific method.
         """
         @staticmethod

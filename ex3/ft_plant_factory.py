@@ -1,7 +1,23 @@
+"""
+ft_plant_factory.py
+
+This file uses the Plant class to demonstrate how multiple objects can
+be created quickly and organized together. Each Plant instance is fully
+initialized through its constructor, meaning it is ready to use
+immediately after creation.
+
+The script acts as a simple "factory" by creating several Plant objects
+with different starting values. It then prints the details of each
+created plant and reports the total number of plants produced. This
+illustrates how object construction can be repeated efficiently and how
+collections of objects can be processed in a loop.
+"""
+
+
 class Plant:
     def __init__(self, name: str, height: int, age: int):
-        self.name = name  # Atributo de instancia
-        self.height = height  # Atributo de instancia
+        self.name = name
+        self.height = height
         self.age = age
 
     def get_info(self):

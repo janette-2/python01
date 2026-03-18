@@ -1,7 +1,23 @@
+"""
+ft_plant_growth.py
+
+This file extends the basic Plant class by adding simple behaviors:
+a plant can grow in height and increase its age. These actions are
+represented by the methods growth() and aged(), which update the
+plant's internal state by increasing their attributes each time they
+are called.
+
+The script simulates one week of growth for a single plant. It shows
+the plant's initial state, applies daily growth and aging through a
+loop, and then displays the final state along with the total height
+increase.
+"""
+
+
 class Plant:
     def __init__(self, name: str, height: int, age: int):
-        self.name = name  # Atributo de instancia
-        self.height = height  # Atributo de instancia
+        self.name = name
+        self.height = height
         self.age = age
 
     def get_info(self):
